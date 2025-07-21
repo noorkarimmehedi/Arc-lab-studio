@@ -128,6 +128,17 @@
     box-shadow: 12px 12px 0px black;
   }
 
+  .neubrutalism-yellow.navbar-fixed {
+    transform: none !important;
+    box-shadow: 8px 8px 0px black !important;
+    position: relative;
+  }
+
+  .neubrutalism-yellow.navbar-fixed:hover {
+    transform: none !important;
+    box-shadow: 8px 8px 0px black !important;
+  }
+
   .neubrutalism-pink {
     background: hsl(var(--neubrutalism-pink));
     border: 4px solid black;

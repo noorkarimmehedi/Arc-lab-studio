@@ -14,11 +14,11 @@ export function Navigation() {
   };
 
   return (
-    <nav className="neubrutalism-yellow fixed w-full top-6 left-1/2 transform -translate-x-1/2 max-w-6xl mx-auto z-50">
-      <div className="px-8 py-4">
+    <nav className="neubrutalism-yellow navbar-fixed fixed w-full top-0 left-0 z-50">
+      <div className="max-w-6xl mx-auto px-8 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 neubrutalism-purple rounded-none flex items-center justify-center wiggle">
+            <div className="w-8 h-8 neubrutalism-purple rounded-none flex items-center justify-center">
               <Zap className="w-5 h-5 text-black" />
             </div>
             <span className="text-xl text-neubrutalism">Arc-Lab</span>

@@ -10,7 +10,7 @@ export function Hero() {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-6 pt-24">
+    <section className="min-h-screen flex items-center justify-center px-6 pt-32">
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
         <div className="space-y-8">
           <div className="space-y-6">
