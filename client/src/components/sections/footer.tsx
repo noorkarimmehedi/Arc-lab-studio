@@ -29,25 +29,27 @@ export function Footer() {
   ];
 
   return (
-    <footer className="py-16 px-6 border-t border-gray-100">
+    <footer className="py-16 px-6 border-t-8 border-black bg-orange-200">
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-4 gap-8 mb-12">
           <div className="md:col-span-2">
             <div className="flex items-center space-x-3 mb-6">
-              <div className="w-10 h-10 cosmic-gradient rounded-2xl flex items-center justify-center">
-                <Zap className="w-6 h-6 text-white" />
+              <div className="w-10 h-10 neubrutalism-purple rounded-none flex items-center justify-center wiggle">
+                <Zap className="w-6 h-6 text-black" />
               </div>
-              <span className="text-2xl font-semibold text-gray-900">Arc-Lab</span>
+              <span className="text-2xl text-neubrutalism">ARC-LAB</span>
             </div>
-            <p className="text-gray-600 mb-6 max-w-md">
-              Award-winning MVP studio crafting digital experiences with unmatched velocity and precision.
+            <p className="text-black font-bold mb-6 max-w-md uppercase">
+              Award-winning MVP studio crafting digital experiences with UNMATCHED velocity and precision!
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((social, index) => {
                 const IconComponent = social.icon;
+                const colors = ['neubrutalism-yellow', 'neubrutalism-pink', 'neubrutalism-teal', 'neubrutalism-green'];
+                const colorClass = colors[index % colors.length];
                 return (
-                  <a key={index} href={social.href} className="glassmorphism p-3 rounded-xl hover-glow">
-                    <IconComponent className="w-5 h-5 text-gray-600" />
+                  <a key={index} href={social.href} className={`${colorClass} p-3 transform ${index % 2 === 0 ? 'rotate-12' : '-rotate-12'} hover:rotate-0 transition-all`}>
+                    <IconComponent className="w-5 h-5 text-black" />
                   </a>
                 );
               })}
@@ -55,11 +57,11 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-semibold text-gray-900 mb-4">Services</h4>
-            <ul className="space-y-3 text-gray-600">
+            <h4 className="font-black text-black mb-4 uppercase">Services</h4>
+            <ul className="space-y-3 text-black font-bold">
               {services.map((service, index) => (
                 <li key={index}>
-                  <a href="#" className="hover:text-[hsl(var(--soft-purple))] smooth-fade">
+                  <a href="#" className="hover:bg-black hover:text-white px-2 py-1 transition-all uppercase text-sm">
                     {service}
                   </a>
                 </li>
@@ -68,11 +70,11 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-semibold text-gray-900 mb-4">Company</h4>
-            <ul className="space-y-3 text-gray-600">
+            <h4 className="font-black text-black mb-4 uppercase">Company</h4>
+            <ul className="space-y-3 text-black font-bold">
               {company.map((item, index) => (
                 <li key={index}>
-                  <a href="#" className="hover:text-[hsl(var(--soft-purple))] smooth-fade">
+                  <a href="#" className="hover:bg-black hover:text-white px-2 py-1 transition-all uppercase text-sm">
                     {item}
                   </a>
                 </li>
@@ -81,11 +83,11 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-500 text-sm">© 2024 Arc-Lab. All rights reserved.</p>
+        <div className="border-t-4 border-black pt-8 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-black font-black text-sm uppercase transform -rotate-1">© 2024 ARC-LAB. ALL RIGHTS RESERVED.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             {legal.map((item, index) => (
-              <a key={index} href="#" className="text-gray-500 hover:text-[hsl(var(--soft-purple))] text-sm smooth-fade">
+              <a key={index} href="#" className="text-black font-bold hover:bg-black hover:text-white px-2 py-1 text-sm uppercase transition-all">
                 {item}
               </a>
             ))}

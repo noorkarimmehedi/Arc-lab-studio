@@ -100,22 +100,22 @@ export function Contact() {
   ];
 
   return (
-    <section id="contact" className="py-24 px-6">
+    <section id="contact" className="py-24 px-6 bg-green-200">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-semibold text-gray-900 mb-6">
-            Ready to <span className="text-cosmic">Launch</span>?
+          <h2 className="text-4xl lg:text-5xl font-black text-black mb-6 transform -rotate-1">
+            READY TO <span className="text-neubrutalism-accent transform rotate-3 inline-block">LAUNCH</span>?
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Let's discuss your MVP and get you to market faster than you thought possible.
+          <p className="text-xl text-black font-bold max-w-2xl mx-auto uppercase">
+            Let's discuss your MVP and get you to market FASTER than you thought possible!
           </p>
         </div>
 
-        <div className="glassmorphism rounded-3xl p-12 shadow-2xl">
+        <div className="neubrutalism p-12 neubrutalism-shadow-xl bg-white transform rotate-1">
           <form onSubmit={handleSubmit} className="space-y-8">
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <Label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                <Label htmlFor="name" className="block text-sm font-black text-black mb-2 uppercase">
                   Name *
                 </Label>
                 <Input
@@ -123,13 +123,13 @@ export function Contact() {
                   type="text"
                   value={formData.name}
                   onChange={(e) => handleInputChange('name', e.target.value)}
-                  placeholder="Your full name"
-                  className="w-full px-6 py-4 glassmorphism rounded-2xl border-0 focus:ring-2 focus:ring-[hsl(var(--soft-purple))] outline-none smooth-fade"
+                  placeholder="YOUR FULL NAME"
+                  className="neubrutalism-input w-full"
                   required
                 />
               </div>
               <div>
-                <Label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                <Label htmlFor="email" className="block text-sm font-black text-black mb-2 uppercase">
                   Email *
                 </Label>
                 <Input
@@ -137,15 +137,15 @@ export function Contact() {
                   type="email"
                   value={formData.email}
                   onChange={(e) => handleInputChange('email', e.target.value)}
-                  placeholder="your@email.com"
-                  className="w-full px-6 py-4 glassmorphism rounded-2xl border-0 focus:ring-2 focus:ring-[hsl(var(--soft-purple))] outline-none smooth-fade"
+                  placeholder="YOUR@EMAIL.COM"
+                  className="neubrutalism-input w-full"
                   required
                 />
               </div>
             </div>
 
             <div>
-              <Label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
+              <Label htmlFor="company" className="block text-sm font-black text-black mb-2 uppercase">
                 Company
               </Label>
               <Input
@@ -153,13 +153,13 @@ export function Contact() {
                 type="text"
                 value={formData.company}
                 onChange={(e) => handleInputChange('company', e.target.value)}
-                placeholder="Your company name"
-                className="w-full px-6 py-4 glassmorphism rounded-2xl border-0 focus:ring-2 focus:ring-[hsl(var(--soft-purple))] outline-none smooth-fade"
+                placeholder="YOUR COMPANY NAME"
+                className="neubrutalism-input w-full"
               />
             </div>
 
             <div>
-              <Label htmlFor="projectDetails" className="block text-sm font-medium text-gray-700 mb-2">
+              <Label htmlFor="projectDetails" className="block text-sm font-black text-black mb-2 uppercase">
                 Project Details *
               </Label>
               <Textarea
@@ -167,42 +167,42 @@ export function Contact() {
                 rows={6}
                 value={formData.projectDetails}
                 onChange={(e) => handleInputChange('projectDetails', e.target.value)}
-                placeholder="Tell us about your MVP idea, timeline, and goals..."
-                className="w-full px-6 py-4 glassmorphism rounded-2xl border-0 focus:ring-2 focus:ring-[hsl(var(--soft-purple))] outline-none resize-none smooth-fade"
+                placeholder="TELL US ABOUT YOUR MVP IDEA, TIMELINE, AND GOALS..."
+                className="neubrutalism-input w-full resize-none"
                 required
               />
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <Label className="block text-sm font-medium text-gray-700 mb-2">
+                <Label className="block text-sm font-black text-black mb-2 uppercase">
                   Budget Range
                 </Label>
                 <Select value={formData.budgetRange} onValueChange={(value) => handleInputChange('budgetRange', value)}>
-                  <SelectTrigger className="w-full px-6 py-4 glassmorphism rounded-2xl border-0 focus:ring-2 focus:ring-[hsl(var(--soft-purple))] outline-none smooth-fade">
-                    <SelectValue placeholder="Select budget range" />
+                  <SelectTrigger className="neubrutalism-input w-full">
+                    <SelectValue placeholder="SELECT BUDGET RANGE" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="10k-25k">$10k - $25k</SelectItem>
-                    <SelectItem value="25k-50k">$25k - $50k</SelectItem>
-                    <SelectItem value="50k-100k">$50k - $100k</SelectItem>
-                    <SelectItem value="100k+">$100k+</SelectItem>
+                    <SelectItem value="10k-25k">$10K - $25K</SelectItem>
+                    <SelectItem value="25k-50k">$25K - $50K</SelectItem>
+                    <SelectItem value="50k-100k">$50K - $100K</SelectItem>
+                    <SelectItem value="100k+">$100K+</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
               <div>
-                <Label className="block text-sm font-medium text-gray-700 mb-2">
+                <Label className="block text-sm font-black text-black mb-2 uppercase">
                   Timeline
                 </Label>
                 <Select value={formData.timeline} onValueChange={(value) => handleInputChange('timeline', value)}>
-                  <SelectTrigger className="w-full px-6 py-4 glassmorphism rounded-2xl border-0 focus:ring-2 focus:ring-[hsl(var(--soft-purple))] outline-none smooth-fade">
-                    <SelectValue placeholder="Select timeline" />
+                  <SelectTrigger className="neubrutalism-input w-full">
+                    <SelectValue placeholder="SELECT TIMELINE" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="asap">ASAP (2 weeks)</SelectItem>
-                    <SelectItem value="1-month">1 month</SelectItem>
-                    <SelectItem value="2-3-months">2-3 months</SelectItem>
-                    <SelectItem value="flexible">Flexible</SelectItem>
+                    <SelectItem value="asap">ASAP (2 WEEKS)</SelectItem>
+                    <SelectItem value="1-month">1 MONTH</SelectItem>
+                    <SelectItem value="2-3-months">2-3 MONTHS</SelectItem>
+                    <SelectItem value="flexible">FLEXIBLE</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -212,9 +212,9 @@ export function Contact() {
               <Button 
                 type="submit"
                 disabled={submitMutation.isPending}
-                className="cosmic-gradient px-12 py-4 rounded-2xl text-white font-medium hover-glow shadow-lg"
+                className="neubrutalism-purple px-12 py-4 font-black text-black hover:bg-transparent text-lg transform -rotate-1 hover:rotate-0 transition-all"
               >
-                {submitMutation.isPending ? "Sending..." : "Send Project Brief"}
+                {submitMutation.isPending ? "SENDING..." : "SEND PROJECT BRIEF"}
                 <Send className="w-5 h-5 inline ml-2" />
               </Button>
             </div>
@@ -225,13 +225,15 @@ export function Contact() {
         <div className="grid md:grid-cols-3 gap-8 mt-16">
           {contactInfo.map((info, index) => {
             const IconComponent = info.icon;
+            const colors = ['neubrutalism-yellow', 'neubrutalism-pink', 'neubrutalism-teal'];
+            const colorClass = colors[index % colors.length];
             return (
-              <div key={index} className="text-center glassmorphism rounded-2xl p-6">
-                <div className="w-12 h-12 cosmic-gradient rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <IconComponent className="w-6 h-6 text-white" />
+              <div key={index} className={`text-center ${colorClass} p-6 transform ${index === 1 ? 'rotate-2' : index === 2 ? '-rotate-1' : 'rotate-1'}`}>
+                <div className="w-12 h-12 neubrutalism-purple rounded-none flex items-center justify-center mx-auto mb-4">
+                  <IconComponent className="w-6 h-6 text-black" />
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-2">{info.title}</h3>
-                <p className="text-gray-600 text-sm">{info.value}</p>
+                <h3 className="font-black text-black mb-2 uppercase">{info.title}</h3>
+                <p className="text-black font-bold text-sm uppercase">{info.value}</p>
               </div>
             );
           })}

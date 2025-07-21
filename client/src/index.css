@@ -15,17 +15,21 @@
   --border: hsl(20, 5.9%, 90%);
   --input: hsl(20, 5.9%, 90%);
   --primary: hsl(262, 100%, 68%);
-  --primary-foreground: hsl(211, 100%, 99%);
+  --primary-foreground: hsl(0, 0%, 0%);
   --secondary: hsl(170, 100%, 42%);
-  --secondary-foreground: hsl(24, 9.8%, 10%);
-  --accent: hsl(60, 4.8%, 95.9%);
-  --accent-foreground: hsl(24, 9.8%, 10%);
-  --destructive: hsl(0, 84.2%, 60.2%);
-  --destructive-foreground: hsl(60, 9.1%, 97.8%);
-  --ring: hsl(20, 14.3%, 4.1%);
-  --radius: 1rem;
+  --secondary-foreground: hsl(0, 0%, 0%);
+  --accent: hsl(45, 100%, 51%);
+  --accent-foreground: hsl(0, 0%, 0%);
+  --destructive: hsl(0, 100%, 50%);
+  --destructive-foreground: hsl(0, 0%, 100%);
+  --ring: hsl(0, 0%, 0%);
+  --radius: 0.5rem;
   --soft-purple: hsl(262, 100%, 68%);
   --teal: hsl(170, 100%, 42%);
+  --neubrutalism-yellow: hsl(45, 100%, 51%);
+  --neubrutalism-pink: hsl(330, 100%, 70%);
+  --neubrutalism-green: hsl(120, 100%, 50%);
+  --neubrutalism-orange: hsl(25, 100%, 50%);
 }
 
 .dark {
@@ -71,45 +75,123 @@
 @layer utilities {
   .grid-overlay {
     background-image: 
-      linear-gradient(rgba(122, 95, 255, 0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(122, 95, 255, 0.05) 1px, transparent 1px);
+      linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
     background-size: 40px 40px;
   }
 
-  .glassmorphism {
-    backdrop-filter: blur(12px);
-    background: rgba(255, 255, 255, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+  .neubrutalism {
+    border: 4px solid black;
+    box-shadow: 8px 8px 0px black;
+    background: white;
+    transition: all 0.2s ease;
   }
 
-  .glassmorphism-dark {
-    backdrop-filter: blur(12px);
-    background: rgba(31, 41, 55, 0.8);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+  .neubrutalism:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 12px 12px 0px black;
   }
 
-  .cosmic-gradient {
-    background: linear-gradient(135deg, hsl(var(--soft-purple)) 0%, hsl(var(--teal)) 100%);
+  .neubrutalism-purple {
+    background: hsl(var(--soft-purple));
+    border: 4px solid black;
+    box-shadow: 8px 8px 0px black;
+    color: black;
   }
 
-  .text-cosmic {
-    background: linear-gradient(135deg, hsl(var(--soft-purple)) 0%, hsl(var(--teal)) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  .neubrutalism-purple:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 12px 12px 0px black;
   }
 
-  .hover-glow {
-    transition: all 0.3s ease-in-out;
+  .neubrutalism-teal {
+    background: hsl(var(--teal));
+    border: 4px solid black;
+    box-shadow: 8px 8px 0px black;
+    color: black;
   }
 
-  .hover-glow:hover {
-    box-shadow: 0 10px 40px rgba(122, 95, 255, 0.3);
-    transform: translateY(-2px);
+  .neubrutalism-teal:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 12px 12px 0px black;
   }
 
-  .smooth-fade {
-    transition: all 0.4s ease-in-out;
+  .neubrutalism-yellow {
+    background: hsl(var(--neubrutalism-yellow));
+    border: 4px solid black;
+    box-shadow: 8px 8px 0px black;
+    color: black;
+  }
+
+  .neubrutalism-yellow:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 12px 12px 0px black;
+  }
+
+  .neubrutalism-pink {
+    background: hsl(var(--neubrutalism-pink));
+    border: 4px solid black;
+    box-shadow: 8px 8px 0px black;
+    color: black;
+  }
+
+  .neubrutalism-pink:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 12px 12px 0px black;
+  }
+
+  .neubrutalism-green {
+    background: hsl(var(--neubrutalism-green));
+    border: 4px solid black;
+    box-shadow: 8px 8px 0px black;
+    color: black;
+  }
+
+  .neubrutalism-green:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 12px 12px 0px black;
+  }
+
+  .text-neubrutalism {
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    color: black;
+  }
+
+  .text-neubrutalism-accent {
+    background: hsl(var(--neubrutalism-yellow));
+    color: black;
+    padding: 0.25rem 0.5rem;
+    border: 2px solid black;
+    display: inline-block;
+    transform: rotate(-2deg);
+    font-weight: 900;
+  }
+
+  .neubrutalism-shadow-xl {
+    box-shadow: 16px 16px 0px black;
+  }
+
+  .neubrutalism-shadow-lg {
+    box-shadow: 12px 12px 0px black;
+  }
+
+  .neubrutalism-shadow {
+    box-shadow: 8px 8px 0px black;
+  }
+
+  .neubrutalism-input {
+    border: 4px solid black;
+    background: white;
+    padding: 1rem;
+    font-weight: 700;
+    font-size: 1rem;
+  }
+
+  .neubrutalism-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px hsl(var(--neubrutalism-yellow));
   }
 
   .floating-animation {
@@ -117,7 +199,16 @@
   }
 
   @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
+    0%, 100% { transform: translateY(0px) rotate(-2deg); }
+    50% { transform: translateY(-10px) rotate(2deg); }
+  }
+
+  .wiggle {
+    animation: wiggle 2s ease-in-out infinite;
+  }
+
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(-3deg); }
+    50% { transform: rotate(3deg); }
   }
 }

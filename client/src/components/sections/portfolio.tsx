@@ -20,43 +20,43 @@ export function Portfolio() {
   ];
 
   return (
-    <section id="portfolio" className="py-24 px-6">
+    <section id="portfolio" className="py-24 px-6 bg-pink-200">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-semibold text-gray-900 mb-6">
-            Recent <span className="text-cosmic">Success Stories</span>
+          <h2 className="text-4xl lg:text-5xl font-black text-black mb-6 transform rotate-1">
+            RECENT <span className="text-neubrutalism-accent transform -rotate-3 inline-block">SUCCESS STORIES</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Explore our portfolio of high-impact MVPs that went from concept to market leader.
+          <p className="text-xl text-black font-bold max-w-3xl mx-auto uppercase">
+            Explore our PORTFOLIO of HIGH-IMPACT MVPs that went from concept to MARKET LEADER!
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 mb-16">
           {projects.map((project, index) => (
-            <div key={index} className="glassmorphism rounded-3xl overflow-hidden hover-glow shadow-lg">
+            <div key={index} className={`neubrutalism ${index === 0 ? 'transform -rotate-2' : 'transform rotate-2'} hover:rotate-0 transition-all duration-300 overflow-hidden`}>
               <img 
                 src={project.image}
                 alt={project.title}
-                className="w-full h-64 object-cover" 
+                className="w-full h-64 object-cover border-b-4 border-black" 
               />
-              <div className="p-8">
+              <div className="p-8 bg-white">
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-2xl font-semibold text-gray-900">{project.title}</h3>
-                  <span className="glassmorphism px-3 py-1 rounded-xl text-sm text-[hsl(var(--soft-purple))]">
+                  <h3 className="text-2xl font-black text-black uppercase">{project.title}</h3>
+                  <span className="neubrutalism-green px-3 py-1 text-sm font-black text-black">
                     {project.timeline}
                   </span>
                 </div>
-                <p className="text-gray-600 mb-6">{project.description}</p>
+                <p className="text-black font-bold mb-6 uppercase text-sm">{project.description}</p>
                 <div className="flex items-center justify-between">
-                  <div className="flex space-x-4">
+                  <div className="flex space-x-2">
                     {project.technologies.map((tech, techIndex) => (
-                      <span key={techIndex} className="text-sm bg-gray-100 px-3 py-1 rounded-lg">
+                      <span key={techIndex} className="text-xs neubrutalism-yellow px-2 py-1 font-black text-black uppercase">
                         {tech}
                       </span>
                     ))}
                   </div>
-                  <button className="text-[hsl(var(--soft-purple))] font-medium flex items-center hover:text-[hsl(var(--teal))] smooth-fade">
-                    View Case Study <ExternalLink className="w-4 h-4 ml-1" />
+                  <button className="neubrutalism-purple px-4 py-2 font-black text-black flex items-center hover:bg-transparent uppercase text-xs">
+                    VIEW CASE <ExternalLink className="w-4 h-4 ml-1" />
                   </button>
                 </div>
               </div>
@@ -65,8 +65,8 @@ export function Portfolio() {
         </div>
 
         <div className="text-center">
-          <Button className="glassmorphism px-8 py-4 rounded-2xl text-[hsl(var(--soft-purple))] font-medium hover-glow shadow-lg bg-transparent hover:bg-transparent">
-            View All Projects
+          <Button className="neubrutalism-teal px-8 py-4 font-black text-black hover:bg-transparent text-lg transform rotate-1 hover:rotate-0 transition-all">
+            VIEW ALL PROJECTS
             <ArrowRight className="w-5 h-5 inline ml-2" />
           </Button>
         </div>

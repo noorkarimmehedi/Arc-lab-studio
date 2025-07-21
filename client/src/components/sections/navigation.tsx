@@ -14,80 +14,80 @@ export function Navigation() {
   };
 
   return (
-    <nav className="glassmorphism fixed w-full top-6 left-1/2 transform -translate-x-1/2 max-w-6xl mx-auto z-50 rounded-2xl shadow-lg">
+    <nav className="neubrutalism-yellow fixed w-full top-6 left-1/2 transform -translate-x-1/2 max-w-6xl mx-auto z-50">
       <div className="px-8 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 cosmic-gradient rounded-xl flex items-center justify-center">
-              <Zap className="w-5 h-5 text-white" />
+            <div className="w-8 h-8 neubrutalism-purple rounded-none flex items-center justify-center wiggle">
+              <Zap className="w-5 h-5 text-black" />
             </div>
-            <span className="text-xl font-semibold text-gray-900">Arc-Lab</span>
+            <span className="text-xl text-neubrutalism">Arc-Lab</span>
           </div>
           
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
             <button 
               onClick={() => scrollToSection('services')}
-              className="text-gray-700 hover:text-[hsl(var(--soft-purple))] smooth-fade"
+              className="text-neubrutalism hover:bg-black hover:text-white px-3 py-2 transition-all duration-200"
             >
               Services
             </button>
             <button 
               onClick={() => scrollToSection('portfolio')}
-              className="text-gray-700 hover:text-[hsl(var(--soft-purple))] smooth-fade"
+              className="text-neubrutalism hover:bg-black hover:text-white px-3 py-2 transition-all duration-200"
             >
               Portfolio
             </button>
             <button 
               onClick={() => scrollToSection('about')}
-              className="text-gray-700 hover:text-[hsl(var(--soft-purple))] smooth-fade"
+              className="text-neubrutalism hover:bg-black hover:text-white px-3 py-2 transition-all duration-200"
             >
               About
             </button>
             <Button 
               onClick={() => scrollToSection('contact')}
-              className="glassmorphism px-6 py-2 rounded-2xl text-[hsl(var(--soft-purple))] font-medium hover-glow bg-transparent hover:bg-transparent"
+              className="neubrutalism-purple px-6 py-2 font-black text-black hover:bg-transparent"
             >
-              Contact
+              CONTACT
             </Button>
           </div>
 
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden glassmorphism rounded-xl"
+            className="md:hidden neubrutalism"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isMenuOpen ? <X className="w-6 h-6 text-black" /> : <Menu className="w-6 h-6 text-black" />}
           </Button>
         </div>
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4 pt-4 border-t border-white/20">
+          <div className="md:hidden mt-4 pt-4 border-t-4 border-black">
             <div className="flex flex-col space-y-3">
               <button 
                 onClick={() => scrollToSection('services')}
-                className="text-gray-700 hover:text-[hsl(var(--soft-purple))] smooth-fade text-left"
+                className="text-neubrutalism hover:bg-black hover:text-white px-3 py-2 text-left transition-all duration-200"
               >
-                Services
+                SERVICES
               </button>
               <button 
                 onClick={() => scrollToSection('portfolio')}
-                className="text-gray-700 hover:text-[hsl(var(--soft-purple))] smooth-fade text-left"
+                className="text-neubrutalism hover:bg-black hover:text-white px-3 py-2 text-left transition-all duration-200"
               >
-                Portfolio
+                PORTFOLIO
               </button>
               <button 
                 onClick={() => scrollToSection('about')}
-                className="text-gray-700 hover:text-[hsl(var(--soft-purple))] smooth-fade text-left"
+                className="text-neubrutalism hover:bg-black hover:text-white px-3 py-2 text-left transition-all duration-200"
               >
-                About
+                ABOUT
               </button>
               <Button 
                 onClick={() => scrollToSection('contact')}
-                className="glassmorphism px-6 py-2 rounded-2xl text-[hsl(var(--soft-purple))] font-medium hover-glow bg-transparent hover:bg-transparent justify-start"
+                className="neubrutalism-purple px-6 py-2 font-black text-black hover:bg-transparent justify-start"
               >
-                Contact
+                CONTACT
               </Button>
             </div>
           </div>
