@@ -1,0 +1,72 @@
+Arc-Lab’s app should reflect the highest level of digital craftsmanship—modern, luxurious, and unmistakably designed by an award-winning studio. The result is an ultra-clean, visually rich interface that inspires trust and showcases innovation.
+
+Key UI Principles
+Ultra-Clean, Luxurious Layout: Every element should breathe, with whitespace creating elegance and clarity.
+
+Typography:
+
+Use Inter font throughout.
+
+Apply a thinner boldness for headings and buttons (e.g., Inter SemiBold or 500).
+
+Set letter-spacing: -0.04em (CSS: letter-spacing: -0.04em;) for a refined, custom feel.
+
+Color Palette:
+
+Primary: Soft Purple #7A5FFF
+
+Secondary: Teal #00D1B2
+
+Background: Pure White, accented with cosmic/futuristic hues—never harsh or oversaturated.
+
+Text: Clean white or light gray for ultimate clarity, always readable against backgrounds.
+
+UI Components & Structure
+Feature	Details
+Component Library	Use shadcn/ui exclusively
+Shape	Large rounded corners (2xl radius)
+Depth	Subtle, realistic shadows for layering
+Padding	Generous in all interactive components
+Transitions	Smooth, futuristic (ease-in-out, fade)
+All input fields, cards, modals, and buttons should appear tactile and inviting.
+
+Visual & Layout Details
+Background:
+
+White canvas with a fine, soft grid overlay—provides structure and a modern, architectural base.
+
+Glassmorphism Effects:
+
+Apply generously: backgrounds of cards, modals, and navigation containers should have translucent, frosted-glass looks (CSS: backdrop-filter: blur(12px); background: rgba(255,255,255,0.2); box-shadow for subtle glow).
+
+Elevate key sections with glassmorphism layers above the main grid.
+
+Glass effects should be visible across all website areas for a cohesive look.
+
+Cosmic/Futuristic Accents:
+
+Use gradients or animated effects sparingly (e.g., glowing lines in Soft Purple/Teal).
+
+No harsh color contrasts—focus on gentle, progressive reveals or hover effects.
+
+UI Consistency:
+
+All design should feel unified—components leverage the same radius, shadow, and spacing systems.
+
+Sample AI Website Prompt (for Lovable, Bolt.new, or similar tools)
+"Create a website for 'Arc-Lab'—a high-velocity MVP studio. The site must embody a world-class, award-winning design: ultra-clean layout, luxurious effect, thin typography (Inter, thinner boldness, -4 letter spacing). Primary color: Soft Purple #7A5FFF. Secondary: Teal #00D1B2. Background: White with a subtle grid. All UI relies on shadcn/ui with subtle shadows, generous padding, and 2xl rounded corners for a polished look. Employ glassmorphism (translucent frosted-glass effects) visibly throughout. Use a refined cosmic/futuristic palette; clean white text, no harsh contrasts. All components and sections should evoke a futuristic, elegant vibe, with consistent visual unity and responsiveness."
+
+Implementation Guidance
+Set the global font in your main CSS:
+
+css
+font-family: 'Inter', sans-serif;
+font-weight: 500;
+letter-spacing: -0.04em;
+Use shadcn/ui React components with the radius="2xl" prop or equivalent.
+
+Structure grid overlays using SVG/CSS background patterns.
+
+Employ glassmorphism by layering translucent containers with backdrop-filter: blur(12px); and rgba backgrounds.
+
+Apply Soft Purple and Teal as defined variables throughout your style system.
