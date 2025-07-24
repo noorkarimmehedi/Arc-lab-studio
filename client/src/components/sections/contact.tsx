@@ -1,243 +1,141 @@
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Label } from "@/components/ui/label";
-import { Send, Mail, Phone, Clock } from "lucide-react";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { apiRequest } from "@/lib/queryClient";
-import { useToast } from "@/hooks/use-toast";
+import { useState, useEffect } from "react";
+import { Send } from "lucide-react";
 
-interface ContactFormData {
-  name: string;
-  email: string;
-  company: string;
-  projectDetails: string;
-  budgetRange: string;
-  timeline: string;
+declare global {
+  interface Window {
+    Cal?: any;
+  }
 }
 
 export function Contact() {
-  const [formData, setFormData] = useState<ContactFormData>({
-    name: "",
-    email: "",
-    company: "",
-    projectDetails: "",
-    budgetRange: "",
-    timeline: ""
-  });
+  const [isCalendarLoading, setIsCalendarLoading] = useState(true);
 
-  const { toast } = useToast();
-  const queryClient = useQueryClient();
+  useEffect(() => {
+    // Add Cal initialization function to window
+    (function (C: typeof window, A: string, L: string) {
+      let p = function (a: { q: any[] }, ar: any) {
+        a.q.push(ar);
+      };
+      let d = C.document;
+      C.Cal =
+        C.Cal ||
+        function () {
+          let cal = C.Cal as { loaded?: boolean; ns?: any; q?: any[] };
+          let ar = arguments;
+          if (!cal.loaded) {
+            cal.ns = {};
+            cal.q = cal.q || [];
+            d.head.appendChild(d.createElement("script")).src = A;
+            cal.loaded = true;
+          }
+          if (ar[0] === L) {
+            const api = function () {
+              p(api as any, arguments);
+            };
+            const namespace = ar[1];
+            (api as any).q = (api as any).q || [];
+            if (typeof namespace === "string") {
+              cal.ns[namespace] = cal.ns[namespace] || api;
+              p(cal.ns[namespace], ar);
+              p(cal as any, ["initNamespace", namespace]);
+            } else p(cal as any, ar);
+            return;
+          }
+          p(cal as any, ar);
+        };
+    })(window, "https://app.cal.com/embed/embed.js", "init");
 
-  const submitMutation = useMutation({
-    mutationFn: async (data: ContactFormData) => {
-      return await apiRequest("POST", "/api/contact", data);
-    },
-    onSuccess: () => {
-      toast({
-        title: "Message sent successfully!",
-        description: "We'll get back to you within 2 hours.",
-      });
-      setFormData({
-        name: "",
-        email: "",
-        company: "",
-        projectDetails: "",
-        budgetRange: "",
-        timeline: ""
-      });
-    },
-    onError: (error: any) => {
-      toast({
-        title: "Error sending message",
-        description: error.message || "Please try again later.",
-        variant: "destructive",
-      });
-    }
-  });
+    // Initialize Cal
+    window.Cal?.("init", "chat-with-noor-from-arc-lab", { origin: "https://app.cal.com" });
 
-  const handleInputChange = (field: keyof ContactFormData, value: string) => {
-    setFormData(prev => ({
-      ...prev,
-      [field]: value
-    }));
-  };
+    // Check periodically for Cal.ns to be available
+    const initInterval = setInterval(() => {
+      if (window.Cal?.ns && window.Cal.ns["chat-with-noor-from-arc-lab"]) {
+        window.Cal.ns["chat-with-noor-from-arc-lab"]("inline", {
+          elementOrSelector: "#my-cal-inline-chat-with-noor-from-arc-lab",
+          config: { layout: "month_view" },
+          calLink: "noor-foumnf/chat-with-noor-from-arc-lab",
+        });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // Basic validation
-    if (!formData.name || !formData.email || !formData.projectDetails) {
-      toast({
-        title: "Please fill in required fields",
-        description: "Name, email, and project details are required.",
-        variant: "destructive",
-      });
-      return;
-    }
+        window.Cal.ns["chat-with-noor-from-arc-lab"]("ui", {
+          hideEventTypeDetails: false,
+          layout: "month_view",
+        });
 
-    submitMutation.mutate(formData);
-  };
+        // Set loading to false after a short delay to ensure calendar is rendered
+        setTimeout(() => setIsCalendarLoading(false), 500);
+        clearInterval(initInterval);
+      }
+    }, 100);
+
+    return () => {
+      clearInterval(initInterval);
+    };
+  }, []);
 
   const contactInfo = [
     {
-      icon: Mail,
       title: "Email",
       value: "hello@arc-lab.studio"
     },
     {
-      icon: Phone,
-      title: "Phone", 
-      value: "+1 (555) 123-4567"
-    },
-    {
-      icon: Clock,
       title: "Response Time",
       value: "Within 2 hours"
     }
   ];
 
   return (
-    <section id="contact" className="py-24 px-6 bg-green-200">
+    <section id="contact" className="py-24 px-6 bg-white">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-black text-black mb-6 transform -rotate-1">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-black mb-6 transform -rotate-1">
             READY TO <span className="text-neubrutalism-accent transform rotate-3 inline-block">LAUNCH</span>?
           </h2>
           <p className="text-xl text-black font-bold max-w-2xl mx-auto uppercase">
             Let's discuss your MVP and get you to market FASTER than you thought possible!
           </p>
+          
+          {/* Contact Info */}
+          <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 mt-8 mb-16">
+            {contactInfo.map((info, index) => {
+              return (
+                <button key={index} className="uiverse-btn px-0 w-full md:w-auto max-w-[280px]">
+                  <span className="shadow"></span>
+                  <span className="edge"></span>
+                  <span className="front flex flex-col items-center gap-2 py-4 px-16 md:px-6 w-full">
+                    <div className="text-center w-full">
+                      <h3 className="font-black uppercase mb-1">{info.title}</h3>
+                      <p className="font-bold text-sm uppercase">{info.value}</p>
+                    </div>
+                  </span>
+                </button>
+              );
+            })}
+          </div>
         </div>
 
-        <div className="neubrutalism p-12 neubrutalism-shadow-xl bg-white transform rotate-1">
-          <form onSubmit={handleSubmit} className="space-y-8">
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <Label htmlFor="name" className="block text-sm font-black text-black mb-2 uppercase">
-                  Name *
-                </Label>
-                <Input
-                  id="name"
-                  type="text"
-                  value={formData.name}
-                  onChange={(e) => handleInputChange('name', e.target.value)}
-                  placeholder="YOUR FULL NAME"
-                  className="neubrutalism-input w-full"
-                  required
-                />
-              </div>
-              <div>
-                <Label htmlFor="email" className="block text-sm font-black text-black mb-2 uppercase">
-                  Email *
-                </Label>
-                <Input
-                  id="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={(e) => handleInputChange('email', e.target.value)}
-                  placeholder="YOUR@EMAIL.COM"
-                  className="neubrutalism-input w-full"
-                  required
-                />
+        <div className="pt-3 px-12 bg-white border-4 border-black" style={{ boxShadow: '8px 8px 0px #000000' }}>
+          {isCalendarLoading && (
+            <div className="flex items-center justify-center min-h-[600px]">
+              <div className="text-center">
+                <div className="w-16 h-16 border-4 border-black border-t-transparent rounded-full animate-spin mb-4"></div>
+                <p className="text-black font-bold">Loading Calendar...</p>
               </div>
             </div>
-
-            <div>
-              <Label htmlFor="company" className="block text-sm font-black text-black mb-2 uppercase">
-                Company
-              </Label>
-              <Input
-                id="company"
-                type="text"
-                value={formData.company}
-                onChange={(e) => handleInputChange('company', e.target.value)}
-                placeholder="YOUR COMPANY NAME"
-                className="neubrutalism-input w-full"
-              />
-            </div>
-
-            <div>
-              <Label htmlFor="projectDetails" className="block text-sm font-black text-black mb-2 uppercase">
-                Project Details *
-              </Label>
-              <Textarea
-                id="projectDetails"
-                rows={6}
-                value={formData.projectDetails}
-                onChange={(e) => handleInputChange('projectDetails', e.target.value)}
-                placeholder="TELL US ABOUT YOUR MVP IDEA, TIMELINE, AND GOALS..."
-                className="neubrutalism-input w-full resize-none"
-                required
-              />
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <Label className="block text-sm font-black text-black mb-2 uppercase">
-                  Budget Range
-                </Label>
-                <Select value={formData.budgetRange} onValueChange={(value) => handleInputChange('budgetRange', value)}>
-                  <SelectTrigger className="neubrutalism-input w-full">
-                    <SelectValue placeholder="SELECT BUDGET RANGE" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="10k-25k">$10K - $25K</SelectItem>
-                    <SelectItem value="25k-50k">$25K - $50K</SelectItem>
-                    <SelectItem value="50k-100k">$50K - $100K</SelectItem>
-                    <SelectItem value="100k+">$100K+</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-              <div>
-                <Label className="block text-sm font-black text-black mb-2 uppercase">
-                  Timeline
-                </Label>
-                <Select value={formData.timeline} onValueChange={(value) => handleInputChange('timeline', value)}>
-                  <SelectTrigger className="neubrutalism-input w-full">
-                    <SelectValue placeholder="SELECT TIMELINE" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="asap">ASAP (2 WEEKS)</SelectItem>
-                    <SelectItem value="1-month">1 MONTH</SelectItem>
-                    <SelectItem value="2-3-months">2-3 MONTHS</SelectItem>
-                    <SelectItem value="flexible">FLEXIBLE</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-            </div>
-
-            <div className="flex justify-center pt-6">
-              <Button 
-                type="submit"
-                disabled={submitMutation.isPending}
-                className="neubrutalism-purple px-12 py-4 font-black text-black hover:bg-transparent text-lg transform -rotate-1 hover:rotate-0 transition-all"
-              >
-                {submitMutation.isPending ? "SENDING..." : "SEND PROJECT BRIEF"}
-                <Send className="w-5 h-5 inline ml-2" />
-              </Button>
-            </div>
-          </form>
+          )}
+          <div 
+            id="my-cal-inline-chat-with-noor-from-arc-lab" 
+            className="transition-opacity duration-500"
+            style={{
+              width: "100%",
+              minHeight: "600px",
+              height: "100%",
+              overflow: "scroll",
+              opacity: isCalendarLoading ? 0 : 1
+            }} 
+          />
         </div>
 
-        {/* Contact Info */}
-        <div className="grid md:grid-cols-3 gap-8 mt-16">
-          {contactInfo.map((info, index) => {
-            const IconComponent = info.icon;
-            const colors = ['neubrutalism-yellow', 'neubrutalism-pink', 'neubrutalism-teal'];
-            const colorClass = colors[index % colors.length];
-            return (
-              <div key={index} className={`text-center ${colorClass} p-6 transform ${index === 1 ? 'rotate-2' : index === 2 ? '-rotate-1' : 'rotate-1'}`}>
-                <div className="w-12 h-12 neubrutalism-purple rounded-none flex items-center justify-center mx-auto mb-4">
-                  <IconComponent className="w-6 h-6 text-black" />
-                </div>
-                <h3 className="font-black text-black mb-2 uppercase">{info.title}</h3>
-                <p className="text-black font-bold text-sm uppercase">{info.value}</p>
-              </div>
-            );
-          })}
-        </div>
       </div>
     </section>
   );

@@ -54,8 +54,8 @@ export function Services() {
             return (
               <div key={index} className={`${colorClass} p-8 transform rotate-${index % 2 === 0 ? '1' : '-1'} hover:rotate-0 transition-all duration-300`}>
                 <div className={`w-16 h-16 neubrutalism-yellow rounded-none flex items-center justify-center mb-6 transform ${index % 2 === 0 ? 'rotate-12' : '-rotate-12'}`}>
-                  <IconComponent className="w-8 h-8 text-black" />
-                </div>
+                    <IconComponent className="w-8 h-8 text-black" />
+                  </div>
                 <h3 className="text-xl font-black text-black mb-4 uppercase">{service.title}</h3>
                 <p className="text-black font-bold mb-6 uppercase text-sm">{service.description}</p>
                 <ul className="space-y-2 text-sm text-black font-bold">

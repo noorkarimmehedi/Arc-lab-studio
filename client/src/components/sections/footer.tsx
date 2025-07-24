@@ -37,7 +37,7 @@ export function Footer() {
               <div className="w-10 h-10 neubrutalism-purple rounded-none flex items-center justify-center wiggle">
                 <Zap className="w-6 h-6 text-black" />
               </div>
-              <span className="text-2xl text-neubrutalism">ARC-LAB</span>
+              <span className="text-2xl text-neubrutalism">OFF-DESIGN</span>
             </div>
             <p className="text-black font-bold mb-6 max-w-md uppercase">
               Award-winning MVP studio crafting digital experiences with UNMATCHED velocity and precision!
@@ -84,7 +84,7 @@ export function Footer() {
         </div>
 
         <div className="border-t-4 border-black pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-black font-black text-sm uppercase transform -rotate-1">© 2024 ARC-LAB. ALL RIGHTS RESERVED.</p>
+          <p className="text-black font-black text-sm uppercase transform -rotate-1">© 2024 OFF-DESIGN. ALL RIGHTS RESERVED.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             {legal.map((item, index) => (
               <a key={index} href="#" className="text-black font-bold hover:bg-black hover:text-white px-2 py-1 text-sm uppercase transition-all">

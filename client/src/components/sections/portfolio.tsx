@@ -23,8 +23,9 @@ export function Portfolio() {
     <section id="portfolio" className="py-24 px-6 bg-pink-200">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-black text-black mb-6 transform rotate-1">
-            RECENT <span className="text-neubrutalism-accent transform -rotate-3 inline-block">SUCCESS STORIES</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-black mb-6 transform rotate-1">
+            <span className="block sm:inline">RECENT</span>{' '}
+            <span className="text-neubrutalism-accent transform -rotate-3 inline-block mt-2 sm:mt-0">SUCCESS STORIES</span>
           </h2>
           <p className="text-xl text-black font-bold max-w-3xl mx-auto uppercase">
             Explore our PORTFOLIO of HIGH-IMPACT MVPs that went from concept to MARKET LEADER!
@@ -42,22 +43,30 @@ export function Portfolio() {
               <div className="p-8 bg-white">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-2xl font-black text-black uppercase">{project.title}</h3>
-                  <span className="neubrutalism-green px-3 py-1 text-sm font-black text-black">
-                    {project.timeline}
-                  </span>
+                  <button className="uiverse-btn px-0 text-xs">
+                    <span className="shadow"></span>
+                    <span className="edge"></span>
+                    <span className="front">{project.timeline}</span>
+                  </button>
                 </div>
                 <p className="text-black font-bold mb-6 uppercase text-sm">{project.description}</p>
-                <div className="flex items-center justify-between">
-                  <div className="flex space-x-2">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-2">
+                  <div className="flex flex-wrap gap-2 w-full sm:w-auto">
                     {project.technologies.map((tech, techIndex) => (
-                      <span key={techIndex} className="text-xs neubrutalism-yellow px-2 py-1 font-black text-black uppercase">
-                        {tech}
-                      </span>
+                      <button key={techIndex} className="uiverse-btn px-0 text-xs uppercase">
+                        <span className="shadow"></span>
+                        <span className="edge"></span>
+                        <span className="front">{tech}</span>
+                      </button>
                     ))}
                   </div>
-                  <button className="neubrutalism-purple px-4 py-2 font-black text-black flex items-center hover:bg-transparent uppercase text-xs">
-                    VIEW CASE <ExternalLink className="w-4 h-4 ml-1" />
-                  </button>
+                  <div className="w-full sm:w-auto">
+                    <button className="uiverse-btn px-0">
+                      <span className="shadow"></span>
+                      <span className="edge"></span>
+                      <span className="front flex flex-col items-center gap-0 text-xs">VIEW<br/><span className="flex items-center gap-1">CASE <ExternalLink className="w-4 h-4" /></span></span>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -65,10 +74,11 @@ export function Portfolio() {
         </div>
 
         <div className="text-center">
-          <Button className="neubrutalism-teal px-8 py-4 font-black text-black hover:bg-transparent text-lg transform rotate-1 hover:rotate-0 transition-all">
-            VIEW ALL PROJECTS
-            <ArrowRight className="w-5 h-5 inline ml-2" />
-          </Button>
+          <button className="uiverse-btn px-0 transform rotate-1 hover:rotate-0 transition-all">
+            <span className="shadow"></span>
+            <span className="edge"></span>
+            <span className="front flex items-center gap-2">VIEW ALL PROJECTS <ArrowRight className="w-5 h-5 inline ml-2" /></span>
+          </button>
         </div>
       </div>
     </section>

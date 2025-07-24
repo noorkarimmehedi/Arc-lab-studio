@@ -21,34 +21,30 @@ export function Navigation() {
             <div className="w-8 h-8 neubrutalism-purple rounded-none flex items-center justify-center">
               <Zap className="w-5 h-5 text-black" />
             </div>
-            <span className="text-xl text-neubrutalism">Arc-Lab</span>
+            <span className="text-xl text-neubrutalism mt-3">OFF-DESIGN</span>
           </div>
           
           <div className="hidden md:flex items-center space-x-6">
-            <button 
-              onClick={() => scrollToSection('services')}
-              className="text-neubrutalism hover:bg-black hover:text-white px-3 py-2 transition-all duration-200"
-            >
-              Services
+            <button onClick={() => scrollToSection('services')} className="uiverse-btn">
+              <span className="shadow"></span>
+              <span className="edge"></span>
+              <span className="front">Services</span>
             </button>
-            <button 
-              onClick={() => scrollToSection('portfolio')}
-              className="text-neubrutalism hover:bg-black hover:text-white px-3 py-2 transition-all duration-200"
-            >
-              Portfolio
+            <button onClick={() => scrollToSection('portfolio')} className="uiverse-btn">
+              <span className="shadow"></span>
+              <span className="edge"></span>
+              <span className="front">Portfolio</span>
             </button>
-            <button 
-              onClick={() => scrollToSection('about')}
-              className="text-neubrutalism hover:bg-black hover:text-white px-3 py-2 transition-all duration-200"
-            >
-              About
+            <button onClick={() => scrollToSection('about')} className="uiverse-btn">
+              <span className="shadow"></span>
+              <span className="edge"></span>
+              <span className="front">About</span>
             </button>
-            <Button 
-              onClick={() => scrollToSection('contact')}
-              className="neubrutalism-purple px-6 py-2 font-black text-black hover:bg-transparent"
-            >
-              CONTACT
-            </Button>
+            <button onClick={() => scrollToSection('contact')} className="uiverse-btn">
+              <span className="shadow"></span>
+              <span className="edge"></span>
+              <span className="front">Contact</span>
+            </button>
           </div>
 
           <Button
@@ -65,30 +61,26 @@ export function Navigation() {
         {isMenuOpen && (
           <div className="md:hidden mt-4 pt-4 border-t-4 border-black">
             <div className="flex flex-col space-y-3">
-              <button 
-                onClick={() => scrollToSection('services')}
-                className="text-neubrutalism hover:bg-black hover:text-white px-3 py-2 text-left transition-all duration-200"
-              >
-                SERVICES
+              <button onClick={() => scrollToSection('services')} className="uiverse-btn w-full text-left">
+                <span className="shadow"></span>
+                <span className="edge"></span>
+                <span className="front">SERVICES</span>
               </button>
-              <button 
-                onClick={() => scrollToSection('portfolio')}
-                className="text-neubrutalism hover:bg-black hover:text-white px-3 py-2 text-left transition-all duration-200"
-              >
-                PORTFOLIO
+              <button onClick={() => scrollToSection('portfolio')} className="uiverse-btn w-full text-left">
+                <span className="shadow"></span>
+                <span className="edge"></span>
+                <span className="front">PORTFOLIO</span>
               </button>
-              <button 
-                onClick={() => scrollToSection('about')}
-                className="text-neubrutalism hover:bg-black hover:text-white px-3 py-2 text-left transition-all duration-200"
-              >
-                ABOUT
+              <button onClick={() => scrollToSection('about')} className="uiverse-btn w-full text-left">
+                <span className="shadow"></span>
+                <span className="edge"></span>
+                <span className="front">ABOUT</span>
               </button>
-              <Button 
-                onClick={() => scrollToSection('contact')}
-                className="neubrutalism-purple px-6 py-2 font-black text-black hover:bg-transparent justify-start"
-              >
-                CONTACT
-              </Button>
+              <button onClick={() => scrollToSection('contact')} className="uiverse-btn w-full text-left">
+                <span className="shadow"></span>
+                <span className="edge"></span>
+                <span className="front">Contact</span>
+              </button>
             </div>
           </div>
         )}

@@ -166,7 +166,7 @@ export function Process() {
   ];
 
   return (
-    <section id="about" className="py-24 px-6">
+    <section id="about" className="py-24 px-0 bg-neubrutalism-yellow">
       <Timeline data={data} />
     </section>
   );
