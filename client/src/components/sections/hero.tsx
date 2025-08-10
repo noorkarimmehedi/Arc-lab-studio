@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
+import { TextScramble } from "@/components/ui/text-scramble";
 import { ArrowRight, TrendingUp, Zap, Rocket } from "lucide-react";
+import { Component as BgGradient } from "@/components/ui/bg-gredient";
 
 export function Hero() {
   const scrollToSection = (sectionId: string) => {
@@ -10,50 +12,78 @@ export function Hero() {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center pl-3.5 pr-4.5 md:px-6 pt-16 md:pt-4">
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+    <section className="min-h-[80vh] flex items-center justify-center pl-3.5 pr-4.5 md:px-6 pt-16 md:pt-12 pb-0 relative">
+      <div
+        className="absolute inset-0 z-0"
+        style={{
+          background: "radial-gradient(125% 125% at 50% 10%, #fff 40%, #6366f1 100%)",
+        }}
+      />
+      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center relative z-10">
         <div className="space-y-8">
           <div className="space-y-6">
-            <h1 className="text-5xl lg:text-6xl xl:text-7xl font-black leading-tight">
-              <span className="text-neubrutalism">AWARD-<br />WINNING</span><br />
-              <span className="mvp-text inline-block px-4 py-2 border-4 border-black rounded-xl shadow-[4px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-250 relative overflow-hidden hover:after:translate-x-0 after:content-[''] after:absolute after:inset-0 after:bg-pink-300 after:-z-10 after:translate-x-[-100%] after:transition-transform after:duration-250" style={{ backgroundColor: '#ebff00' }}>MVP STUDIO</span>
+            <h1 className="text-4xl lg:text-5xl xl:text-6xl font-black leading-tight">
+              <span className="text-neubrutalism text-4xl sm:text-5xl lg:text-6xl">Building the</span><br />
+              <span className="text-neubrutalism">First Version</span><br />
+              <div className="btn-wrapper">
+                <button className="btn">
+                  <span className="btn-txt">
+                    OF THE FUTURE
+                  </span>
+                </button>
+                <div className="dot pulse"></div>
+              </div>
             </h1>
-            <p className="text-xl text-black font-bold leading-relaxed max-w-2xl uppercase">
+            <p className="text-base md:text-xl text-black font-bold leading-relaxed max-w-2xl uppercase">
               We craft digital experiences with UNMATCHED velocity and precision. From concept to market in RECORD TIME!
             </p>
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4 pr-3 sm:pr-0">
-            <button onClick={() => scrollToSection('contact')} className="uiverse-btn px-0">
-              <span className="shadow"></span>
-              <span className="edge"></span>
-              <span className="front flex flex-row items-center justify-center sm:justify-start gap-2 w-full">START YOUR MVP <ArrowRight className="w-5 h-5" /></span>
+            <button 
+              onClick={() => scrollToSection('contact')} 
+              className="inline-block px-6 py-3 bg-blue-500 text-white font-black border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px] transition-all w-full sm:w-auto"
+            >
+              <span className="flex flex-row items-center justify-center sm:justify-start gap-2 w-full">START YOUR MVP <ArrowRight className="w-5 h-5" /></span>
             </button>
-            <button onClick={() => scrollToSection('portfolio')} className="uiverse-btn px-0">
-              <span className="shadow"></span>
-              <span className="edge"></span>
-              <span className="front flex items-center justify-center sm:justify-start w-full">VIEW PORTFOLIO</span>
+            <button 
+              onClick={() => scrollToSection('portfolio')} 
+              className="inline-block px-6 py-3 bg-yellow-300 text-black font-black border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px] transition-all w-full sm:w-auto"
+            >
+              <span className="flex items-center justify-center sm:justify-start w-full">VIEW PORTFOLIO</span>
             </button>
           </div>
 
-          <div className="flex items-center space-x-8 pt-8">
-            <div className="text-center neubrutalism-pink p-4 transform rotate-2">
-              <div className="text-3xl font-black text-black">200+</div>
-              <div className="text-sm font-bold text-black uppercase">MVPs Launched</div>
-            </div>
-            <div className="text-center neubrutalism-yellow p-4 transform -rotate-1">
-              <div className="text-3xl font-black text-black">14 DAYS</div>
-              <div className="text-sm font-bold text-black uppercase">Average Delivery</div>
-            </div>
-            <div className="text-center neubrutalism-green p-4 transform rotate-1">
-              <div className="text-3xl font-black text-black">98%</div>
-              <div className="text-sm font-bold text-black uppercase">Success Rate</div>
-            </div>
+          <div className="grid grid-cols-2 md:flex md:flex-nowrap items-center gap-3 md:gap-2 lg:gap-4 pt-8">
+            <Button variant="brutal" className="w-full md:min-w-[140px] h-auto py-3">
+              <div className="text-center w-full">
+                <div className="text-2xl font-black">200+</div>
+                <div className="text-xs font-bold uppercase">MVPs Launched</div>
+              </div>
+            </Button>
+            <Button variant="brutal-normal" className="w-full md:min-w-[140px] h-auto py-3">
+              <div className="text-center w-full">
+                <div className="text-2xl font-black">21 DAYS</div>
+                <div className="text-xs font-bold uppercase">Average Delivery</div>
+              </div>
+            </Button>
+            <Button variant="brutal" className="w-full md:min-w-[140px] h-auto py-3 bg-green-500">
+              <div className="text-center w-full">
+                <div className="text-2xl font-black">98%</div>
+                <div className="text-xs font-bold uppercase">Success Rate</div>
+              </div>
+            </Button>
+            <Button variant="brutal" className="w-full md:min-w-[140px] h-auto py-3 bg-blue-500">
+              <div className="text-center w-full">
+                <div className="text-2xl font-black">100%</div>
+                <div className="text-xs font-bold uppercase">AI Development</div>
+              </div>
+            </Button>
           </div>
         </div>
 
         <div className="relative">
-          <div className="neubrutalism p-8 neubrutalism-shadow-xl max-w-md mx-auto">
+          <div className="neubrutalism p-8 border-2 border-black shadow-[4px_4px_0_0_#facc14] hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-none transition-all duration-300 max-w-md mx-auto">
             <div className="flex flex-col gap-1 items-start mb-2">
               <span className="text-2xl font-black text-black">MVP DEVELOPMENT PACKAGE</span>
               <span className="text-2xl font-black text-black">Starting at $3499 <span className='text-base'>(One time Payment)</span></span>

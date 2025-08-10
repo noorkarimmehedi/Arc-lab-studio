@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="32" height="32" fill="#000000"/>
-  <text x="16" y="20" font-family="Arial Black, sans-serif" font-size="14" fill="white" text-anchor="middle" font-weight="900">OFF</text>
-</svg> 
+  <path d="M16 16H32V0L31.998 0.00146484C23.1967 0.0770472 16.077 7.19672 16.0015 15.998L16 16Z" fill="#FF4502"/>
+  <path d="M16 16V32H32L31.9986 31.998C31.923 23.1967 24.8033 16.077 16.002 16.0015L16 16Z" fill="#FF4502"/>
+  <path d="M16 16H0V32L0.00195312 31.9986C7.8033 31.923 14.923 24.8033 14.9985 16.002L16 16Z" fill="#FF4502"/>
+  <path d="M0.00146484 0.00195312C0.0770466 7.8033 7.19672 14.923 15.998 14.9985L16 16V0L0 0L0.00146484 0.00195312Z" fill="#FF4502"/>
+</svg>

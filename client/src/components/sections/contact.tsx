@@ -79,17 +79,22 @@ export function Contact() {
       value: "hello@arc-lab.studio"
     },
     {
+      title: "Book a Call",
+      value: "Schedule a 30-min chat",
+      link: "https://cal.com/noor-foumnf/15min"
+    },
+    {
       title: "Response Time",
       value: "Within 2 hours"
     }
   ];
 
   return (
-    <section id="contact" className="py-24 px-6 bg-white">
+    <section id="contact" className="pt-10 pb-6 px-6 bg-white">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-black mb-6 transform -rotate-1">
-            READY TO <span className="text-neubrutalism-accent transform rotate-3 inline-block">LAUNCH</span>?
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-black mb-6">
+            READY TO <span className="inline-block px-3 py-1 bg-green-500 text-white font-black border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px] transition-all">LAUNCH?</span>
           </h2>
           <p className="text-xl text-black font-bold max-w-2xl mx-auto uppercase">
             Let's discuss your MVP and get you to market FASTER than you thought possible!
@@ -98,43 +103,32 @@ export function Contact() {
           {/* Contact Info */}
           <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 mt-8 mb-16">
             {contactInfo.map((info, index) => {
-              return (
-                <button key={index} className="uiverse-btn px-0 w-full md:w-auto max-w-[280px]">
-                  <span className="shadow"></span>
-                  <span className="edge"></span>
-                  <span className="front flex flex-col items-center gap-2 py-4 px-16 md:px-6 w-full">
-                    <div className="text-center w-full">
-                      <h3 className="font-black uppercase mb-1">{info.title}</h3>
-                      <p className="font-bold text-sm uppercase">{info.value}</p>
-                    </div>
-                  </span>
-                </button>
+              const Content = () => (
+                <div className="text-center w-full">
+                  <h3 className="font-black uppercase mb-1">{info.title}</h3>
+                  <p className="font-bold text-sm uppercase">{info.value}</p>
+                </div>
+              );
+              
+              return info.link ? (
+                <a 
+                  key={index} 
+                  href={info.link} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-block px-7 py-4 bg-white text-black font-black border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px] transition-all w-full md:w-auto md:min-w-[260px] lg:min-w-[280px]">
+                  <Content />
+                </a>
+              ) : (
+                <div key={index} className="inline-block px-7 py-4 bg-white text-black font-black border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px] transition-all w-full md:w-auto md:min-w-[260px] lg:min-w-[280px]">
+                  <Content />
+                </div>
               );
             })}
           </div>
         </div>
 
-        <div className="pt-3 px-12 bg-white border-4 border-black" style={{ boxShadow: '8px 8px 0px #000000' }}>
-          {isCalendarLoading && (
-            <div className="flex items-center justify-center min-h-[600px]">
-              <div className="text-center">
-                <div className="w-16 h-16 border-4 border-black border-t-transparent rounded-full animate-spin mb-4"></div>
-                <p className="text-black font-bold">Loading Calendar...</p>
-              </div>
-            </div>
-          )}
-          <div 
-            id="my-cal-inline-chat-with-noor-from-arc-lab" 
-            className="transition-opacity duration-500"
-            style={{
-              width: "100%",
-              minHeight: "600px",
-              height: "100%",
-              overflow: "scroll",
-              opacity: isCalendarLoading ? 0 : 1
-            }} 
-          />
-        </div>
+        {/* Cal.com integration hidden as requested */}
 
       </div>
     </section>

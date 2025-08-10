@@ -34,19 +34,20 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 
   return (
     <div
-      className="w-full bg-purple-200 font-sans md:px-10 relative"
+      className="w-full font-sans md:px-10 relative"
       ref={containerRef}
+      style={{ backgroundColor: '#3b82f5' }}
     >
-      <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
-        <h2 className="text-lg md:text-4xl mb-4 text-black max-w-4xl font-black transform rotate-1 uppercase">
-          Our <span className="text-neubrutalism-accent transform -rotate-2 inline-block">Process</span>
+      <div className="max-w-7xl mx-auto py-6 px-4 md:px-8 lg:px-10">
+        <h2 className="text-lg md:text-4xl mb-4 text-white max-w-4xl font-black uppercase">
+          Our <span className="inline-block px-3 py-1 bg-white text-blue-500 font-black border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px] transition-all">PROCESS</span>
         </h2>
-        <p className="text-black text-sm md:text-base max-w-2xl font-bold uppercase">
+        <p className="text-white text-sm md:text-base max-w-2xl font-bold uppercase">
           A REFINED methodology that ensures EXCEPTIONAL results in RECORD TIME. Every step is designed for MAXIMUM efficiency and QUALITY!
         </p>
       </div>
 
-      <div ref={ref} className="relative max-w-7xl mx-auto pb-20">
+      <div ref={ref} className="relative max-w-7xl mx-auto pb-6">
         {data.map((item, index) => (
           <div
             key={index}
@@ -56,14 +57,18 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
               <div className="h-10 absolute left-3 md:left-3 w-10 neubrutalism-yellow rounded-none flex items-center justify-center border-4 border-black">
                 <div className="h-4 w-4 rounded-none neubrutalism-purple border-2 border-black p-2" />
               </div>
-              <h3 className="hidden md:block text-xl md:pl-20 md:text-5xl font-black text-black uppercase transform -rotate-1">
-                {item.title}
+              <h3 className="hidden md:block md:pl-20">
+                <span className="inline-block px-3 py-1 bg-white text-blue-500 font-black border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px] transition-all text-xl md:text-3xl uppercase">
+                  {item.title}
+                </span>
               </h3>
             </div>
 
             <div className="relative pl-20 pr-4 md:pl-4 w-full">
-              <h3 className="md:hidden block text-2xl mb-4 text-left font-black text-black uppercase">
-                {item.title}
+              <h3 className="md:hidden block mb-4 text-left">
+                <span className="inline-block px-3 py-1 bg-white text-blue-500 font-black border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px] transition-all text-xl uppercase">
+                  {item.title}
+                </span>
               </h3>
               {item.content}{" "}
             </div>
