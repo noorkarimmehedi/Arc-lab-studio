@@ -34,12 +34,14 @@ export function Hero() {
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4 pr-3 sm:pr-0">
-            <button 
-              onClick={() => scrollToSection('contact')} 
+            <a 
+              href="https://cal.com/noor-foumnf/15min?overlayCalendar=true"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-block px-6 py-3 bg-blue-500 text-white font-black border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px] transition-all w-full sm:w-auto"
             >
               <span className="flex flex-row items-center justify-center sm:justify-start gap-2 w-full">START YOUR MVP <ArrowRight className="w-5 h-5" /></span>
-            </button>
+            </a>
             <button 
               onClick={() => scrollToSection('portfolio')} 
               className="inline-block px-6 py-3 bg-yellow-300 text-black font-black border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px] transition-all w-full sm:w-auto"
@@ -79,8 +81,8 @@ export function Hero() {
         <div className="relative">
           <div className="neubrutalism p-8 border-2 border-black shadow-[4px_4px_0_0_#facc14] hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-none transition-all duration-300 max-w-md mx-auto">
             <div className="flex flex-col gap-1 items-start mb-2">
-              <span className="text-2xl font-black text-black">MVP DEVELOPMENT PACKAGE</span>
-              <span className="text-2xl font-black text-black">Starting at $3499 <span className='text-base'>(One time Payment)</span></span>
+              <span className="text-xl md:text-2xl font-black text-black">MVP DEVELOPMENT PACKAGE</span>
+              <span className="text-xl md:text-2xl font-black text-black">Starting at $3000 <span className='text-sm md:text-base'>(One time Payment)</span></span>
             </div>
             <div className="text-sm font-bold text-red-600 mb-4">Limited availability - Only 5 spots for August.</div>
             <div className="text-black font-medium mb-4">
@@ -94,11 +96,16 @@ export function Hero() {
                 <li>Regular updates and transparent process</li>
               </ul>
             </div>
-            <button className="uiverse-btn w-full mt-4">
+            <a 
+              href="https://cal.com/noor-foumnf/15min?overlayCalendar=true"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="uiverse-btn w-full mt-4 block"
+            >
               <span className="shadow"></span>
               <span className="edge"></span>
               <span className="front flex justify-center items-center">Share Your Vision &rarr;</span>
-            </button>
+            </a>
           </div>
         </div>
       </div>
