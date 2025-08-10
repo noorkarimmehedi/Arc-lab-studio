@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { TextScramble } from "@/components/ui/text-scramble";
-import { ArrowRight, TrendingUp, Zap, Rocket } from "lucide-react";
-import { Component as BgGradient } from "@/components/ui/bg-gredient";
+import { ArrowRight } from "lucide-react";
 
 export function Hero() {
   const scrollToSection = (sectionId: string) => {
@@ -13,12 +12,7 @@ export function Hero() {
 
   return (
     <section className="min-h-[80vh] flex items-center justify-center pl-3.5 pr-4.5 md:px-6 pt-16 md:pt-12 pb-0 relative">
-      <div
-        className="absolute inset-0 z-0"
-        style={{
-          background: "radial-gradient(125% 125% at 50% 10%, #fff 40%, #6366f1 100%)",
-        }}
-      />
+
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center relative z-10">
         <div className="space-y-8">
           <div className="space-y-6">
